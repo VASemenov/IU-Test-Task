@@ -121,8 +121,9 @@ def p_func_chain(p):
 		p[0] = p[1:]
 
 def p_error(p):
-	print("Parsing error:", p.value)
-	exit()
+	if p:
+		print("Parsing error:", p.value)
+		exit()
 
 parser = yacc.yacc()
 parser.parse(code)
